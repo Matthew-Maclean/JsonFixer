@@ -101,3 +101,7 @@ output:
     }
 }
 ```
+
+As demonstrated, whitespace and the location of commmas is not preserved
+exactly. JSON whitespace is not signifigant so this should not affect parsing
+or deserialization.
