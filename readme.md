@@ -33,3 +33,71 @@ This library only works with utf-8 or ASCII-compatable streams. I tried to keep
 the memory overhead low (2 bytes!), but the trade-off here is many (many) calls
 to `read` in the contained `Read`er. Using a `BufReader` would make this more
 efficient (as it would make most things).
+
+## Example usage
+
+input:
+
+```javascript
+{
+    /*
+     * Sample JSON file from the JSON website
+     * with added comments and trailing commas
+     */
+    "glossary": {
+        // line comment
+        "title": "example glossary",
+        "GlossDiv": {
+            /* removed element with multiline comment
+            "title": "S",
+            */
+            "GlossList": {
+                "GlossEntry": {
+                    "ID": "SGML",
+                    "SortAs": "SGML",
+                    // another line comment
+                    "GlossTerm": "Standard Generalized Markup Language",
+                    "Acronym": "SGML",
+                    "Abbrev": "ISO 8879:1986",
+                    "GlossDef": {
+                        /* this line removed because it's too long! 
+                        "para": "A meta-markup language, used to create
+                                 markup languages such as DocBook.",
+                        */
+                        "GlossSeeAlso": ["GML", "XML",],
+                    },
+                    "GlossSee": "markup",
+                },
+            },
+        },
+    },
+}
+```
+
+output:
+
+```json
+{
+
+    "glossary": {
+                    "title": "example glossary"
+        ,"GlossDiv": {
+
+            "GlossList": {
+                "GlossEntry": {
+                    "ID": "SGML"
+                    ,"SortAs": "SGML"
+                                            ,"GlossTerm": "Standard Generalized Markup Language"
+                    ,"Acronym": "SGML"
+                    ,"Abbrev": "ISO 8879:1986"
+                    ,"GlossDef": {
+
+                        "GlossSeeAlso": ["GML" ,"XML"]
+                    }
+                    ,"GlossSee": "markup"
+                }
+            }
+        }
+    }
+}
+```
