@@ -2,7 +2,7 @@
 
 !Only for use with utf-8 or ASCII streams!
 
-A `Read`er ship to remove c-style comments and trailing commas from utf-8 JSON
+A `Read`er shim to remove c-style comments and trailing commas from utf-8 JSON
 files. Featuring:
 
 - Single-line `//` comments, which cannot start inside quotes.
