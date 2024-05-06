@@ -8,7 +8,7 @@ files. Featuring:
 - Single-line `//` comments, which cannot start inside quotes.
 - Multi-line `/*` to `*/` comments, which cannot start, but can end inside
 quotes.
-- Trailing commas, which are not emittited if they precede immediately a
+- Trailing commas, which are not emitted if they precede immediately a
 closing square bracket or brace.
 
 ## Structs
