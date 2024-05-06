@@ -239,3 +239,11 @@ fn whole_json()
 
     assert_eq!(parsed, output);
 }
+
+#[test]
+fn fixer_size()
+{
+    let size = std::mem::size_of::<JsonFixer::<()>>();
+
+    assert_eq!(size, 2);
+}
